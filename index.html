@@ -12,18 +12,16 @@
 /* ─── COLOR TOKENS ─── */
 :root{
   --bg:#06080d;
-  --bg-card:rgba(11,17,26,.72);
+  --bg-card:rgba(11,17,26,.75);
   --p:#06b6d4;--p2:#38bdf8;--p3:rgba(6,182,212,.12);
   --teal:#14b8a6;--teal-glow:rgba(20,184,166,.2);
   --a:#f59e0b;
-  --w:#f0fdfa;--w2:rgba(240,253,250,.65);--w3:rgba(240,253,250,.35);
+  --w:#f0fdfa;--w2:rgba(240,253,250,.7);--w3:rgba(240,253,250,.4);
   --m:#2e4052;
-  --bdr:rgba(6,182,212,.15);
-  --bdr-hover:rgba(56,189,248,.4);
-  --card:rgba(11,17,26,.72);
+  --bdr:rgba(6,182,212,.16);
+  --bdr-hover:rgba(56,189,248,.45);
+  --card:rgba(11,17,26,.75);
   --mx:50vw;--my:50vh;
-  --phone-accent:#38bdf8;
-  --phone-bg:#070b12;
 }
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -38,7 +36,7 @@ a{text-decoration:none;color:inherit}
 button{font-family:inherit}
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:rgba(6,182,212,.4);border-radius:4px}
+::-webkit-scrollbar-thumb{background:rgba(6,182,212,.35);border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:var(--p2)}
 
 /* ─── DESKTOP ONLY RETICLE CURSOR ─── */
@@ -106,7 +104,7 @@ button{font-family:inherit}
   to{transform:translate(-50%,-50%) scale(2.8);opacity:0}
 }
 
-/* Touch & Mobile Cursor Explicit Disable */
+/* Touch & Mobile Cursor Suppression */
 .is-touch-device #cur,
 .is-touch-device #cdot,
 .is-touch-device .c-ripple,
@@ -160,8 +158,8 @@ button{font-family:inherit}
 .gate-ui{
   position:relative;z-index:10;text-align:center;
   display:flex;flex-direction:column;align-items:center;gap:18px;
-  width:90%;max-width:620px;padding:30px 24px;
-  background:rgba(8,14,23,.78);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  width:90%;max-width:620px;padding:32px 24px;
+  background:rgba(8,14,23,.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
   border:1px solid rgba(6,182,212,.28);border-radius:24px;
   box-shadow:0 24px 60px rgba(0,0,0,.75), 0 0 40px rgba(6,182,212,.15);
   animation:floatGate 4s ease-in-out infinite;
@@ -223,18 +221,20 @@ button{font-family:inherit}
   transform:translateY(-2px) scale(1.02);
   box-shadow:0 14px 45px rgba(6,182,212,.55);
 }
-.gate-phone-btn{
+
+.gate-dl-btn{
   font-family:'Space Mono',monospace;
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
   padding:14px 24px;border-radius:100px;
-  background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.4);
-  font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--p2);
+  background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.35);
+  font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--a);
   cursor:pointer;-webkit-tap-highlight-color:transparent;transition:all .2s;
 }
-.gate-phone-btn:active, .gate-phone-btn:hover{
-  background:rgba(56,189,248,.25);border-color:var(--p2);transform:translateY(-2px);
-  box-shadow:0 8px 24px rgba(56,189,248,.3);
+.gate-dl-btn:active, .gate-dl-btn:hover{
+  background:rgba(245,158,11,.25);border-color:var(--a);transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(245,158,11,.3);
 }
+
 .gate-resume-btn{
   font-family:'Space Mono',monospace;
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -248,7 +248,7 @@ button{font-family:inherit}
 }
 
 /* ═════════════════════════════════════════════
-   RESUME MODAL
+   RESUME MODAL (WITH DIRECT PDF DOWNLOAD ONLY)
 ═════════════════════════════════════════════ */
 #resume-modal{
   position:fixed;inset:0;z-index:99990;
@@ -261,9 +261,9 @@ button{font-family:inherit}
 
 .res-container{
   background:#090e17;border:1px solid rgba(6,182,212,.3);
-  border-radius:24px;width:100%;max-width:860px;max-height:92vh;
+  border-radius:24px;width:100%;max-width:880px;max-height:92vh;
   display:flex;flex-direction:column;
-  box-shadow:0 30px 80px rgba(0,0,0,.8), 0 0 50px rgba(6,182,212,.18);
+  box-shadow:0 30px 80px rgba(0,0,0,.85), 0 0 50px rgba(6,182,212,.2);
   overflow:hidden;transform:scale(.95);transition:transform .35s cubic-bezier(.16,1,.3,1);
 }
 #resume-modal.active .res-container{transform:scale(1)}
@@ -279,15 +279,15 @@ button{font-family:inherit}
 }
 .res-controls{display:flex;align-items:center;gap:10px}
 .res-btn{
-  padding:8px 16px;border-radius:100px;font-size:.76rem;font-weight:600;
-  cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:6px;
+  padding:9px 20px;border-radius:100px;font-size:.78rem;font-weight:700;
+  cursor:pointer;transition:all .25s;display:inline-flex;align-items:center;gap:8px;
   font-family:'Space Mono',monospace;
 }
 .res-btn-dl{
   background:linear-gradient(135deg,var(--p),#0891b2);color:#fff;border:none;
-  box-shadow:0 4px 16px rgba(6,182,212,.3);
+  box-shadow:0 4px 16px rgba(6,182,212,.35);
 }
-.res-btn-dl:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(6,182,212,.5)}
+.res-btn-dl:hover,.res-btn-dl:active{transform:translateY(-2px);box-shadow:0 6px 22px rgba(6,182,212,.55)}
 .res-close{
   width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.08);
   border:1px solid var(--bdr);color:var(--w);display:flex;align-items:center;justify-content:center;
@@ -328,7 +328,7 @@ button{font-family:inherit}
 nav{
   position:fixed;top:0;left:0;right:0;z-index:1000;
   padding:16px 5%;display:flex;align-items:center;justify-content:space-between;
-  background:rgba(7,9,14,.75);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  background:rgba(7,9,14,.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
   border-bottom:1px solid var(--bdr);
   transform:translateY(-110%);transition:transform .6s cubic-bezier(.16,1,.3,1);
 }
@@ -348,12 +348,13 @@ nav.on{transform:translateY(0)}
 .n-links a:hover::after{right:0}
 
 .n-actions{display:flex;align-items:center;gap:10px}
-.n-phone-btn{
-  padding:8px 16px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3);border-radius:100px;
+.n-dl-btn{
+  padding:8px 18px;background:linear-gradient(135deg,rgba(6,182,212,.18),rgba(2,132,199,.15));
+  border:1px solid rgba(56,189,248,.4);border-radius:100px;
   font-size:.74rem;font-weight:700;color:var(--p2);cursor:pointer;
   transition:all .25s;font-family:'Space Mono',monospace;display:inline-flex;align-items:center;gap:6px;
 }
-.n-phone-btn:hover{background:rgba(56,189,248,.25);border-color:var(--p2);box-shadow:0 0 16px rgba(56,189,248,.35);transform:translateY(-1px)}
+.n-dl-btn:hover{background:rgba(56,189,248,.3);border-color:var(--p2);box-shadow:0 0 16px rgba(56,189,248,.35);transform:translateY(-1px)}
 
 .n-resume-btn{
   padding:8px 16px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);border-radius:100px;
@@ -416,10 +417,10 @@ nav.on{transform:translateY(0)}
 .mob-links a:hover,.mob-links a:active{color:var(--p2);transform:translateX(6px)}
 .mob-actions{display:flex;flex-direction:column;gap:12px;margin-top:auto}
 
-/* Mobile Quick Bottom Floating Dock Bar */
+/* Mobile Floating Quick Bottom Dock */
 #mobile-dock{
   display:none;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);
-  z-index:999;background:rgba(10,16,26,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  z-index:999;background:rgba(10,16,26,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
   border:1px solid rgba(6,182,212,.3);border-radius:100px;
   padding:6px 14px;gap:8px;align-items:center;
   box-shadow:0 12px 36px rgba(0,0,0,.65), 0 0 20px rgba(6,182,212,.2);
@@ -433,7 +434,7 @@ nav.on{transform:translateY(0)}
 .dock-item.active,.dock-item:active{
   color:var(--p2);background:rgba(56,189,248,.12);
 }
-.dock-item.phone-pill{
+.dock-item.dl-pill{
   background:linear-gradient(135deg,var(--p),#0284c7);color:#fff;
   padding:6px 14px;border-radius:100px;box-shadow:0 4px 14px rgba(6,182,212,.4);
 }
@@ -489,14 +490,15 @@ nav.on{transform:translateY(0)}
 }
 .bp:hover{transform:translateY(-3px);box-shadow:0 12px 35px rgba(6,182,212,.45)}
 
-.bphone{
+.bdl{
   padding:13px 26px;border-radius:100px;
-  background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.4);
+  background:linear-gradient(135deg,rgba(6,182,212,.15),rgba(2,132,199,.12));
+  border:1px solid rgba(56,189,248,.45);
   font-size:.85rem;font-weight:700;color:var(--p2);cursor:pointer;
   transition:all .3s;display:inline-flex;align-items:center;gap:8px;
-  box-shadow:0 4px 20px rgba(56,189,248,.18);
+  box-shadow:0 4px 20px rgba(56,189,248,.2);
 }
-.bphone:hover, .bphone:active{background:rgba(56,189,248,.25);border-color:var(--p2);transform:translateY(-3px);box-shadow:0 8px 30px rgba(56,189,248,.35)}
+.bdl:hover, .bdl:active{background:rgba(56,189,248,.25);border-color:var(--p2);transform:translateY(-3px);box-shadow:0 8px 30px rgba(56,189,248,.35)}
 
 .bres{
   padding:13px 26px;border-radius:100px;
@@ -685,248 +687,6 @@ nav.on{transform:translateY(0)}
 .clb{font-size:.65rem;color:rgba(240,253,250,.45);text-transform:uppercase;letter-spacing:2px}
 .cvl{font-size:.82rem;font-weight:500;text-align:center;color:var(--w2)}
 
-/* ═════════════════════════════════════════════
-   INTERACTIVE PHONE INTERFACE MODAL / SIMULATOR
-═════════════════════════════════════════════ */
-#phone-modal{
-  position:fixed;inset:0;z-index:99995;
-  background:rgba(3,6,10,.88);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-  display:flex;align-items:center;justify-content:center;
-  padding:16px;opacity:0;pointer-events:none;
-  transition:opacity .35s ease;
-}
-#phone-modal.active{opacity:1;pointer-events:auto}
-
-.phone-modal-wrapper{
-  display:flex;align-items:center;gap:36px;
-  max-width:980px;width:100%;justify-content:center;
-  transform:scale(.92) translateY(20px);
-  transition:transform .4s cubic-bezier(.16,1,.3,1);
-}
-#phone-modal.active .phone-modal-wrapper{
-  transform:scale(1) translateY(0);
-}
-
-.phone-modal-info{
-  max-width:320px;display:flex;flex-direction:column;gap:18px;
-}
-.pinfo-badge{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);
-  border-radius:100px;padding:6px 14px;font-size:.7rem;font-weight:700;
-  color:var(--p2);font-family:'Space Mono',monospace;letter-spacing:1px;width:fit-content;
-}
-.pinfo-title{
-  font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:900;line-height:1.15;
-}
-.pinfo-desc{
-  font-size:.85rem;color:var(--w2);line-height:1.7;
-}
-.pinfo-features{
-  display:flex;flex-direction:column;gap:10px;font-size:.8rem;color:var(--w2);
-}
-.pinfo-features li{display:flex;align-items:center;gap:8px}
-.pinfo-features li span{color:var(--p2)}
-
-/* Smartphone Frame Device */
-.phone-device{
-  width:360px;height:720px;max-height:92vh;
-  background:#05070c;
-  border-radius:48px;
-  border:10px solid #1e293b;
-  box-shadow:0 0 0 2px rgba(56,189,248,.3), 0 30px 90px rgba(0,0,0,.9), 0 0 60px rgba(6,182,212,.2);
-  position:relative;overflow:hidden;
-  display:flex;flex-direction:column;
-  font-family:'Inter',system-ui,sans-serif;
-  user-select:none;
-}
-
-.phone-screen{
-  flex:1;display:flex;flex-direction:column;position:relative;overflow:hidden;
-  background:radial-gradient(circle at 50% 20%, #0d1929 0%, #060911 100%);
-  color:#fff;
-}
-
-/* Phone Status Bar */
-.phone-statusbar{
-  height:40px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;
-  font-size:.72rem;font-weight:600;z-index:100;
-}
-.phone-time{font-family:'JetBrains Mono',monospace;letter-spacing:.5px}
-.phone-island{
-  width:96px;height:24px;background:#000;border-radius:20px;
-  position:absolute;left:50%;top:8px;transform:translateX(-50%);
-  display:flex;align-items:center;justify-content:space-between;padding:0 10px;
-  box-shadow:0 2px 10px rgba(0,0,0,.5);
-}
-.island-dot{width:8px;height:8px;background:#1e293b;border-radius:50%}
-.island-cam{width:9px;height:9px;background:#0f172a;border-radius:50%;border:1px solid #334155}
-.phone-status-icons{display:flex;align-items:center;gap:6px;font-size:.7rem}
-
-/* Phone Home Screen */
-.phone-home{
-  flex:1;padding:16px 20px 24px;display:flex;flex-direction:column;
-  overflow-y:auto;position:relative;z-index:10;
-}
-.phone-widget{
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-  backdrop-filter:blur(20px);border-radius:22px;padding:16px;
-  margin-bottom:24px;
-}
-.pwidget-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.pwidget-title{font-size:.72rem;font-weight:700;color:var(--p2);text-transform:uppercase;letter-spacing:1px}
-.pwidget-status{font-size:.65rem;color:#2dd4bf;display:flex;align-items:center;gap:4px}
-.pwidget-name{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:900;line-height:1.2}
-.pwidget-role{font-size:.75rem;color:var(--w2);margin-top:2px}
-
-/* App Grid */
-.phone-app-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:18px 12px;
-  margin-bottom:auto;
-}
-.app-icon-wrap{
-  display:flex;flex-direction:column;align-items:center;gap:6px;
-  cursor:pointer;background:none;border:none;color:#fff;-webkit-tap-highlight-color:transparent;
-}
-.app-icon{
-  width:52px;height:52px;border-radius:15px;
-  display:flex;align-items:center;justify-content:center;font-size:1.5rem;
-  box-shadow:0 8px 20px rgba(0,0,0,.4);transition:transform .15s,box-shadow .15s;
-  position:relative;
-}
-.app-icon-wrap:active .app-icon{transform:scale(.88)}
-.app-label{font-size:.68rem;font-weight:500;color:rgba(255,255,255,.85);letter-spacing:.2px;text-align:center}
-
-.app-nova{background:linear-gradient(135deg,#06b6d4,#0284c7)}
-.app-terminal{background:linear-gradient(135deg,#1e293b,#0f172a);border:1px solid #334155}
-.app-skills{background:linear-gradient(135deg,#8b5cf6,#6366f1)}
-.app-phone{background:linear-gradient(135deg,#10b981,#059669)}
-.app-resume{background:linear-gradient(135deg,#f59e0b,#d97706)}
-.app-github{background:linear-gradient(135deg,#334155,#1e293b)}
-.app-mail{background:linear-gradient(135deg,#ec4899,#be185d)}
-.app-settings{background:linear-gradient(135deg,#64748b,#475569)}
-
-.app-badge{
-  position:absolute;top:-4px;right:-4px;width:18px;height:18px;border-radius:50%;
-  background:#ef4444;color:#fff;font-size:.6rem;font-weight:700;
-  display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.5);
-}
-
-.phone-dock{
-  background:rgba(255,255,255,.1);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.15);
-  border-radius:26px;padding:10px 14px;display:flex;justify-content:space-around;
-  margin-top:20px;
-}
-.phone-dock .app-label{display:none}
-
-.phone-home-bar-wrap{
-  height:26px;display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent;
-}
-.phone-home-bar{
-  width:110px;height:4px;background:rgba(255,255,255,.6);border-radius:10px;
-  transition:width .2s,background .2s;
-}
-.phone-home-bar-wrap:active .phone-home-bar{width:130px;background:#fff}
-
-/* Phone App Pages */
-.phone-app-view{
-  position:absolute;inset:0;background:#080d16;
-  z-index:50;display:flex;flex-direction:column;
-  transform:translateY(100%);transition:transform .35s cubic-bezier(.16,1,.3,1);
-}
-.phone-app-view.open{transform:translateY(0)}
-
-.app-header{
-  padding:36px 16px 12px;background:rgba(13,22,35,.85);border-bottom:1px solid rgba(255,255,255,.08);
-  display:flex;align-items:center;justify-content:space-between;
-}
-.app-back-btn{
-  background:none;border:none;color:var(--p2);font-size:.85rem;font-weight:600;
-  display:flex;align-items:center;gap:4px;cursor:pointer;padding:4px 8px;border-radius:8px;
-}
-.app-header-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800}
-.app-header-action{font-size:.8rem;color:var(--p2);cursor:pointer}
-
-.app-content{
-  flex:1;padding:16px;overflow-y:auto;-webkit-overflow-scrolling:touch;
-}
-
-/* Toast inside phone */
-.phone-toast{
-  position:absolute;top:54px;left:50%;transform:translateX(-50%) translateY(-20px);
-  background:rgba(6,182,212,.9);color:#fff;padding:8px 16px;border-radius:100px;
-  font-size:.72rem;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.5);
-  opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.16,1,.3,1);z-index:1000;
-}
-.phone-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-/* 1. Nova Mini App */
-.nova-mini-hero{
-  background:linear-gradient(135deg,rgba(6,182,212,.15),rgba(2,132,199,.08));
-  border:1px solid rgba(6,182,212,.3);border-radius:16px;padding:14px;margin-bottom:14px;
-}
-.nova-mini-badge{font-size:.65rem;color:var(--a);font-weight:700;text-transform:uppercase;letter-spacing:1px}
-.nova-mini-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:900;margin:4px 0}
-.nova-mini-p{font-size:.75rem;color:var(--w2);line-height:1.5}
-.nova-prod-list{display:flex;flex-direction:column;gap:10px}
-.nova-prod-card{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;
-  padding:12px;display:flex;gap:12px;align-items:center;
-}
-.nova-prod-img{width:46px;height:46px;border-radius:10px;background:rgba(6,182,212,.1);display:flex;align-items:center;justify-content:center;font-size:1.4rem}
-.nova-prod-info{flex:1}
-.nova-prod-name{font-size:.82rem;font-weight:700}
-.nova-prod-price{font-size:.78rem;color:var(--p2);font-family:'JetBrains Mono',monospace;margin-top:2px}
-.nova-add-btn{
-  background:var(--p);color:#fff;border:none;padding:6px 12px;border-radius:8px;
-  font-size:.7rem;font-weight:700;cursor:pointer;transition:transform .15s;
-}
-.nova-add-btn:active{transform:scale(.92)}
-
-/* 2. Terminal Mini App */
-.term-box{
-  background:#04070d;border:1px solid rgba(56,189,248,.2);border-radius:12px;
-  padding:14px;height:100%;display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;font-size:.72rem;
-}
-.term-output{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:6px;color:#cbd5e1;line-height:1.6}
-.term-input-row{display:flex;align-items:center;gap:6px;border-top:1px solid rgba(255,255,255,.1);padding-top:10px;margin-top:8px}
-.term-prompt{color:var(--p2);font-weight:700}
-.term-input{
-  flex:1;background:none;border:none;outline:none;color:#fff;font-family:inherit;font-size:inherit;
-}
-.term-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
-.term-chip{
-  background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);padding:3px 8px;
-  border-radius:6px;color:var(--p2);font-size:.65rem;cursor:pointer;
-}
-
-/* 3. Dialer App */
-.dialer-keypad{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0;
-}
-.dial-btn{
-  height:54px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  cursor:pointer;color:#fff;-webkit-tap-highlight-color:transparent;transition:background .15s;
-}
-.dial-btn:active{background:rgba(56,189,248,.25)}
-.dial-btn .digit{font-size:1.15rem;font-weight:700;line-height:1}
-.dial-btn .sub{font-size:.55rem;color:var(--w3);letter-spacing:1px}
-.dial-call-btn{
-  width:58px;height:58px;border-radius:50%;background:#10b981;margin:0 auto;
-  display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;
-  box-shadow:0 6px 20px rgba(16,185,129,.4);border:none;cursor:pointer;
-}
-
-/* Close Phone Modal Button */
-.phone-modal-close{
-  position:absolute;top:20px;right:20px;width:40px;height:40px;border-radius:50%;
-  background:rgba(255,255,255,.1);border:1px solid var(--bdr);color:#fff;
-  display:flex;align-items:center;justify-content:center;font-size:1.4rem;cursor:pointer;
-  transition:all .2s;z-index:99999;
-}
-.phone-modal-close:hover{background:#ef4444;border-color:#ef4444}
-
 /* ─── FOOTER ─── */
 footer{
   text-align:center;padding:36px 5% 90px;border-top:1px solid var(--bdr);
@@ -943,36 +703,24 @@ footer .a{color:var(--p2)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
 /* ═════════════════════════════════════════════
-   MOBILE & TABLET RESPONSIVE TWEAKS
+   MOBILE & PHONE ACCESSIBLE RESPONSIVE TWEAKS
 ═════════════════════════════════════════════ */
-@media(max-width:992px){
-  .phone-modal-info{display:none}
-  .phone-modal-wrapper{justify-content:center}
-}
-
 @media(max-width:768px){
-  .sw{padding:80px 6%}
-  .stitle{margin-bottom:40px}
-  .ag{grid-template-columns:1fr;gap:36px}
+  .sw{padding:75px 6%}
+  .stitle{margin-bottom:36px}
+  .ag{grid-template-columns:1fr;gap:32px}
   .fg{grid-template-columns:1fr}
-  .n-links, .n-actions .n-gate-btn, .n-actions .n-resume-btn, .n-actions .n-phone-btn{display:none}
+  .n-links, .n-actions .n-gate-btn, .n-actions .n-resume-btn, .n-actions .n-dl-btn{display:none}
   .mobile-nav-toggle{display:flex}
   #mobile-dock{display:flex}
-  .pc{padding:30px 20px}
-  .pname{font-size:2.4rem}
+  .pc{padding:28px 18px}
+  .pname{font-size:2.3rem}
   .hname{letter-spacing:-2px}
   .gate-ui{padding:24px 18px;margin:0 12px;gap:14px}
   .gate-title{font-size:2.2rem}
   .res-header{flex-direction:column;gap:12px;align-items:flex-start}
   .res-controls{width:100%;justify-content:space-between}
-  
-  #phone-modal{padding:0}
-  .phone-modal-wrapper{height:100%;max-width:100%}
-  .phone-device{
-    width:100vw;height:100vh;max-height:100vh;
-    border-radius:0;border:none;box-shadow:none;
-  }
-  .phone-modal-close{top:12px;right:14px;background:rgba(0,0,0,.6)}
+  .res-contact-bar{flex-direction:column;gap:8px}
 }
 
 @media(max-width:480px){
@@ -982,346 +730,25 @@ footer .a{color:var(--p2)}
   .srow{grid-template-columns:1fr 1fr;gap:8px}
   .sbox{padding:16px 10px}
   .snum{font-size:1.8rem}
-  .phone-island{width:80px;height:20px}
+  .gate-actions{flex-direction:column;width:100%}
+  .gate-btn, .gate-dl-btn, .gate-resume-btn{width:100%}
 }
 </style>
 </head>
 <body>
 
-<!-- ════ PHONE INTERFACE SIMULATOR MODAL ════ -->
-<div id="phone-modal">
-  <button class="phone-modal-close" id="close-phone-modal" title="Close Phone OS">&times;</button>
-  
-  <div class="phone-modal-wrapper">
-    <!-- Desktop Info Sidebar -->
-    <div class="phone-modal-info">
-      <div class="pinfo-badge">✦ KUSHANT PHONE OS v2.7</div>
-      <h2 class="pinfo-title">Interactive <span class="gr">Smartphone</span> Interface</h2>
-      <p class="pinfo-desc">
-        Experience Kushant's interactive portfolio in a fully functional smartphone simulator! Explore working apps, run dev terminal commands, simulate Nova commerce checkout, and test speed dial.
-      </p>
-      <ul class="pinfo-features">
-        <li><span>🛍️</span> Nova E-Commerce App & Live Cart</li>
-        <li><span>💻</span> Interactive Developer Terminal</li>
-        <li><span>📞</span> Speed Dial & WhatsApp Connector</li>
-        <li><span>⚡</span> Skills & Stack Browser</li>
-        <li><span>📄</span> Resume & Profile Reader</li>
-      </ul>
-      <div style="font-size:.75rem;color:var(--p2);font-family:'Space Mono',monospace">
-        ✦ Swipe bottom bar or tap Back to return to Home
-      </div>
-    </div>
-
-    <!-- The Smartphone Device -->
-    <div class="phone-device">
-      <div class="phone-screen">
-        
-        <!-- Live Toast -->
-        <div class="phone-toast" id="phone-toast">Notification</div>
-
-        <!-- Status Bar -->
-        <div class="phone-statusbar">
-          <span class="phone-time" id="phone-clock">12:00</span>
-          <div class="phone-island">
-            <span class="island-dot"></span>
-            <span class="island-cam"></span>
-          </div>
-          <div class="phone-status-icons">
-            <span>5G</span>
-            <span>📶</span>
-            <span>🔋 98%</span>
-          </div>
-        </div>
-
-        <!-- 1. Phone Home Screen -->
-        <div class="phone-home" id="phone-home">
-          <!-- Widget -->
-          <div class="phone-widget">
-            <div class="pwidget-header">
-              <span class="pwidget-title">Kushant OS</span>
-              <span class="pwidget-status"><span class="bdot" style="width:5px;height:5px"></span> Open to Work</span>
-            </div>
-            <div class="pwidget-name">Kushant</div>
-            <div class="pwidget-role">Software & Full-Stack Developer</div>
-          </div>
-
-          <!-- Apps Grid -->
-          <div class="phone-app-grid">
-            <button class="app-icon-wrap" data-app="nova">
-              <div class="app-icon app-nova">
-                <span>🛍️</span>
-                <span class="app-badge" id="phone-cart-badge">2</span>
-              </div>
-              <span class="app-label">Nova Store</span>
-            </button>
-
-            <button class="app-icon-wrap" data-app="terminal">
-              <div class="app-icon app-terminal"><span>💻</span></div>
-              <span class="app-label">Terminal</span>
-            </button>
-
-            <button class="app-icon-wrap" data-app="skills">
-              <div class="app-icon app-skills"><span>⚡</span></div>
-              <span class="app-label">Skills</span>
-            </button>
-
-            <button class="app-icon-wrap" data-app="dialer">
-              <div class="app-icon app-phone"><span>📞</span></div>
-              <span class="app-label">Phone</span>
-            </button>
-
-            <button class="app-icon-wrap" data-app="resume">
-              <div class="app-icon app-resume"><span>📄</span></div>
-              <span class="app-label">Resume</span>
-            </button>
-
-            <a class="app-icon-wrap" href="https://github.com/honestlygolu" target="_blank">
-              <div class="app-icon app-github">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234C5.662 21.302 4.967 19.16 4.967 19.16c-.547-1.387-1.333-1.756-1.333-1.756-1.089-.744.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 6.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              </div>
-              <span class="app-label">GitHub</span>
-            </a>
-
-            <a class="app-icon-wrap" href="mailto:honestlygolu@gmail.com">
-              <div class="app-icon app-mail"><span>✉️</span></div>
-              <span class="app-label">Email</span>
-            </a>
-
-            <button class="app-icon-wrap" data-app="settings">
-              <div class="app-icon app-settings"><span>⚙️</span></div>
-              <span class="app-label">Settings</span>
-            </button>
-          </div>
-
-          <!-- Phone Dock -->
-          <div class="phone-dock">
-            <button class="app-icon-wrap" data-app="dialer"><div class="app-icon app-phone" style="width:46px;height:46px"><span>📞</span></div></button>
-            <button class="app-icon-wrap" data-app="terminal"><div class="app-icon app-terminal" style="width:46px;height:46px"><span>💻</span></div></button>
-            <button class="app-icon-wrap" data-app="nova"><div class="app-icon app-nova" style="width:46px;height:46px"><span>🛍️</span></div></button>
-            <a class="app-icon-wrap" href="https://wa.me/919289256544" target="_blank"><div class="app-icon" style="background:#25d366;width:46px;height:46px"><span>💬</span></div></a>
-          </div>
-        </div>
-
-        <!-- 2. NOVA STORE APP VIEW -->
-        <div class="phone-app-view" id="app-nova-view">
-          <div class="app-header">
-            <button class="app-back-btn phone-back-btn">‹ Back</button>
-            <span class="app-header-title">Nova Commerce</span>
-            <span class="app-header-action" id="phone-checkout-btn">Cart (<span id="cart-count">2</span>)</span>
-          </div>
-          <div class="app-content">
-            <div class="nova-mini-hero">
-              <div class="nova-mini-badge">Flagship Demo</div>
-              <div class="nova-mini-title">NOVA E-Commerce</div>
-              <div class="nova-mini-p">React 19 + FastAPI + PostgreSQL + Razorpay sandbox integration.</div>
-            </div>
-            <div class="nova-prod-list">
-              <div class="nova-prod-card">
-                <div class="nova-prod-img">🧥</div>
-                <div class="nova-prod-info">
-                  <div class="nova-prod-name">Cyber Cyberpunk Hoodie</div>
-                  <div class="nova-prod-price">₹ 2,499</div>
-                </div>
-                <button class="nova-add-btn" onclick="addPhoneCart('Cyber Hoodie')">+ Add</button>
-              </div>
-              <div class="nova-prod-card">
-                <div class="nova-prod-img">⌨️</div>
-                <div class="nova-prod-info">
-                  <div class="nova-prod-name">Quantum Mechanical Board</div>
-                  <div class="nova-prod-price">₹ 4,999</div>
-                </div>
-                <button class="nova-add-btn" onclick="addPhoneCart('Quantum Board')">+ Add</button>
-              </div>
-              <div class="nova-prod-card">
-                <div class="nova-prod-img">🎧</div>
-                <div class="nova-prod-info">
-                  <div class="nova-prod-name">Neural ANC Headphones</div>
-                  <div class="nova-prod-price">₹ 7,999</div>
-                </div>
-                <button class="nova-add-btn" onclick="addPhoneCart('Neural ANC')">+ Add</button>
-              </div>
-            </div>
-            <div style="margin-top:16px;text-align:center">
-              <a href="https://github.com/honestlygolu/Nova-Ecommerce" target="_blank" style="font-size:.75rem;color:var(--p2);text-decoration:underline">View Full NOVA Repository ↗</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. TERMINAL APP VIEW -->
-        <div class="phone-app-view" id="app-terminal-view">
-          <div class="app-header">
-            <button class="app-back-btn phone-back-btn">‹ Back</button>
-            <span class="app-header-title">kushant@phone:~$</span>
-            <span class="app-header-action" onclick="clearTerm()">Clear</span>
-          </div>
-          <div class="app-content" style="padding:10px">
-            <div class="term-box">
-              <div class="term-output" id="term-output">
-                <div>Welcome to <span style="color:var(--p2)">Kushant CLI v2.7</span></div>
-                <div>Type <span style="color:#2dd4bf">'help'</span> or tap chips below:</div>
-                <div style="color:var(--a)">--------------------------------</div>
-              </div>
-              <div class="term-chips">
-                <span class="term-chip" onclick="runTermCmd('about')">about</span>
-                <span class="term-chip" onclick="runTermCmd('skills')">skills</span>
-                <span class="term-chip" onclick="runTermCmd('projects')">projects</span>
-                <span class="term-chip" onclick="runTermCmd('contact')">contact</span>
-                <span class="term-chip" onclick="runTermCmd('hire')">hire</span>
-              </div>
-              <div class="term-input-row">
-                <span class="term-prompt">❯</span>
-                <input type="text" class="term-input" id="term-input" placeholder="Type command..." autocomplete="off"/>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. SKILLS APP VIEW -->
-        <div class="phone-app-view" id="app-skills-view">
-          <div class="app-header">
-            <button class="app-back-btn phone-back-btn">‹ Back</button>
-            <span class="app-header-title">Tech Stack</span>
-            <span></span>
-          </div>
-          <div class="app-content">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-              <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:12px;border:1px solid rgba(6,182,212,.2)">
-                <div style="font-size:1.5rem">⚛️</div>
-                <div style="font-weight:700;font-size:.82rem;margin-top:4px">React 19</div>
-                <div style="font-size:.68rem;color:var(--p2)">Frontend Architecture</div>
-              </div>
-              <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:12px;border:1px solid rgba(6,182,212,.2)">
-                <div style="font-size:1.5rem">🚀</div>
-                <div style="font-weight:700;font-size:.82rem;margin-top:4px">FastAPI</div>
-                <div style="font-size:.68rem;color:var(--p2)">Python REST APIs</div>
-              </div>
-              <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:12px;border:1px solid rgba(6,182,212,.2)">
-                <div style="font-size:1.5rem">🐘</div>
-                <div style="font-weight:700;font-size:.82rem;margin-top:4px">PostgreSQL</div>
-                <div style="font-size:.68rem;color:var(--p2)">Relational DB</div>
-              </div>
-              <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:12px;border:1px solid rgba(6,182,212,.2)">
-                <div style="font-size:1.5rem">🐳</div>
-                <div style="font-weight:700;font-size:.82rem;margin-top:4px">Docker</div>
-                <div style="font-size:.68rem;color:var(--p2)">Containers & Compose</div>
-              </div>
-              <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:12px;border:1px solid rgba(6,182,212,.2)">
-                <div style="font-size:1.5rem">🎨</div>
-                <div style="font-weight:700;font-size:.82rem;margin-top:4px">Tailwind 4</div>
-                <div style="font-size:.68rem;color:var(--p2)">Modern Styling</div>
-              </div>
-              <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:12px;border:1px solid rgba(6,182,212,.2)">
-                <div style="font-size:1.5rem">💳</div>
-                <div style="font-weight:700;font-size:.82rem;margin-top:4px">Razorpay</div>
-                <div style="font-size:.68rem;color:var(--p2)">Payment Sandbox</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5. DIALER APP VIEW -->
-        <div class="phone-app-view" id="app-dialer-view">
-          <div class="app-header">
-            <button class="app-back-btn phone-back-btn">‹ Back</button>
-            <span class="app-header-title">Speed Dial</span>
-            <span></span>
-          </div>
-          <div class="app-content" style="text-align:center">
-            <div style="font-size:1.3rem;font-weight:700;font-family:'JetBrains Mono',monospace;min-height:30px;color:var(--p2)" id="dial-number">+91 9289256544</div>
-            <div style="font-size:.75rem;color:var(--w2)">Kushant · Delhi, India</div>
-            
-            <div class="dialer-keypad">
-              <div class="dial-btn" onclick="dialKey('1')"><span class="digit">1</span><span class="sub"></span></div>
-              <div class="dial-btn" onclick="dialKey('2')"><span class="digit">2</span><span class="sub">ABC</span></div>
-              <div class="dial-btn" onclick="dialKey('3')"><span class="digit">3</span><span class="sub">DEF</span></div>
-              <div class="dial-btn" onclick="dialKey('4')"><span class="digit">4</span><span class="sub">GHI</span></div>
-              <div class="dial-btn" onclick="dialKey('5')"><span class="digit">5</span><span class="sub">JKL</span></div>
-              <div class="dial-btn" onclick="dialKey('6')"><span class="digit">6</span><span class="sub">MNO</span></div>
-              <div class="dial-btn" onclick="dialKey('7')"><span class="digit">7</span><span class="sub">PQRS</span></div>
-              <div class="dial-btn" onclick="dialKey('8')"><span class="digit">8</span><span class="sub">TUV</span></div>
-              <div class="dial-btn" onclick="dialKey('9')"><span class="digit">9</span><span class="sub">WXYZ</span></div>
-              <div class="dial-btn" onclick="dialKey('*')"><span class="digit">*</span></div>
-              <div class="dial-btn" onclick="dialKey('0')"><span class="digit">0</span><span class="sub">+</span></div>
-              <div class="dial-btn" onclick="dialKey('#')"><span class="digit">#</span></div>
-            </div>
-
-            <div style="display:flex;justify-content:center;gap:16px;align-items:center">
-              <a href="tel:9289256544" class="dial-call-btn" title="Call Directly">📞</a>
-              <a href="https://wa.me/919289256544" target="_blank" class="dial-call-btn" style="background:#25d366" title="WhatsApp">💬</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6. RESUME APP VIEW -->
-        <div class="phone-app-view" id="app-resume-view">
-          <div class="app-header">
-            <button class="app-back-btn phone-back-btn">‹ Back</button>
-            <span class="app-header-title">Resume</span>
-            <span class="app-header-action" onclick="window.print()">Print</span>
-          </div>
-          <div class="app-content" style="font-size:.8rem;line-height:1.6">
-            <h3 style="font-family:'Syne',sans-serif;font-size:1.2rem;color:var(--w)">KUSHANT</h3>
-            <div style="color:var(--p2);font-size:.72rem;margin-bottom:12px">Software / Full-Stack Developer</div>
-            <p style="color:var(--w2);margin-bottom:12px">
-              BCA student at Ganga Institute of Technology and Management (2024–2027) building production web applications with React 19, FastAPI, PostgreSQL, and Docker.
-            </p>
-            <div style="background:rgba(6,182,212,.08);padding:10px;border-radius:8px;margin-bottom:12px;border:1px solid var(--bdr)">
-              <strong>Flagship: NOVA E-Commerce</strong><br/>
-              Full-stack commerce with JWT, cart persistence, Alembic migrations & Razorpay checkout.
-            </div>
-            <button class="bp" style="width:100%;justify-content:center;padding:10px" onclick="document.getElementById('resume-modal').classList.add('active')">
-              Open Full Desktop CV
-            </button>
-          </div>
-        </div>
-
-        <!-- 7. SETTINGS APP VIEW -->
-        <div class="phone-app-view" id="app-settings-view">
-          <div class="app-header">
-            <button class="app-back-btn phone-back-btn">‹ Back</button>
-            <span class="app-header-title">Settings</span>
-            <span></span>
-          </div>
-          <div class="app-content">
-            <div style="font-size:.8rem;font-weight:700;color:var(--p2);margin-bottom:8px">THEME ACCENT</div>
-            <div style="display:flex;gap:10px;margin-bottom:20px">
-              <button onclick="setPhoneTheme('#38bdf8')" style="width:36px;height:36px;border-radius:50%;background:#38bdf8;border:2px solid #fff;cursor:pointer"></button>
-              <button onclick="setPhoneTheme('#f59e0b')" style="width:36px;height:36px;border-radius:50%;background:#f59e0b;border:none;cursor:pointer"></button>
-              <button onclick="setPhoneTheme('#10b981')" style="width:36px;height:36px;border-radius:50%;background:#10b981;border:none;cursor:pointer"></button>
-              <button onclick="setPhoneTheme('#ec4899')" style="width:36px;height:36px;border-radius:50%;background:#ec4899;border:none;cursor:pointer"></button>
-            </div>
-            <div style="font-size:.8rem;font-weight:700;color:var(--p2);margin-bottom:8px">DEVICE INFO</div>
-            <div style="background:rgba(255,255,255,.05);padding:12px;border-radius:10px;font-size:.75rem;line-height:1.8;color:var(--w2)">
-              <div>OS Version: KushantOS 2.7 Pro</div>
-              <div>Kernel: FullStack-Web-Core</div>
-              <div>Location: Delhi, India</div>
-              <div>Status: Active / Open to Roles</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Home Indicator Bar -->
-        <div class="phone-home-bar-wrap" id="phone-home-bar" title="Swipe or tap for Home">
-          <div class="phone-home-bar"></div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ════ RESUME MODAL ════ -->
+<!-- ════ RESUME MODAL (DOWNLOAD ONLY) ════ -->
 <div id="resume-modal">
   <div class="res-container">
     <div class="res-header">
       <div class="res-title">
         <span>📄</span>
-        <span>KUSHANT // CURRICULUM VITAE</span>
+        <span>KUSHANT // ENGINEERING RESUME</span>
       </div>
       <div class="res-controls">
-        <button class="res-btn res-btn-dl" onclick="window.print()">
-          <span>⎙ Print / Save PDF</span>
-        </button>
+        <a class="res-btn res-btn-dl" href="resume.pdf" download="Kushant_Resume.pdf">
+          <span>📥 Download Resume (PDF)</span>
+        </a>
         <button class="res-close" id="close-resume" title="Close Resume">&times;</button>
       </div>
     </div>
@@ -1333,20 +760,20 @@ footer .a{color:var(--p2)}
         <span>📍 Delhi, India</span>
         <span>📞 +91 9289256544</span>
         <span>✉️ honestlygolu@gmail.com</span>
-        <span>🔗 github.com/honestlygolu</span>
-        <span>💼 linkedin.com/in/developerkushant</span>
+        <span>🔗 <a href="https://github.com/honestlygolu" target="_blank" style="color:var(--p2);text-decoration:underline">github.com/honestlygolu</a></span>
+        <span>💼 <a href="https://linkedin.com/in/developerkushant" target="_blank" style="color:var(--p2);text-decoration:underline">linkedin.com/in/developerkushant</a></span>
       </div>
 
       <div class="res-section-title">01 // Profile Summary</div>
       <p>
-        BCA student focused on software development with hands-on experience building and shipping full-stack web applications. Strong practical foundation across React, FastAPI, PostgreSQL, Python, SQL, Tailwind CSS, Git and Docker, with a flagship project that covers real commerce, authentication, and sandbox payment workflows.
+        BCA student focused on software development with hands-on experience building and shipping full-stack web applications. Strong practical foundation across React, FastAPI, PostgreSQL, Python, SQL, Tailwind CSS, Git and Docker, with a flagship project that covers real commerce, authentication and payment workflows.
       </p>
 
       <div class="res-section-title">02 // Featured Project</div>
       <div class="res-item">
         <div class="res-item-head">
-          <div class="res-item-title">NOVA — Full-Stack E-Commerce Platform</div>
-          <div class="res-item-meta"><a href="https://github.com/honestlygolu/Nova-Ecommerce" target="_blank" style="color:var(--p2);text-decoration:underline">GitHub Repository ↗</a></div>
+          <div class="res-item-title">NOVA | Full-Stack E-Commerce Platform</div>
+          <div class="res-item-meta"><a href="https://github.com/honestlygolu/Nova-Ecommerce" target="_blank" style="color:var(--p2);text-decoration:underline">Repository github.com/honestlygolu/Nova-Ecommerce ↗</a></div>
         </div>
         <div class="res-tags">
           <span class="res-tag">React 19</span>
@@ -1361,32 +788,46 @@ footer .a{color:var(--p2)}
           <span class="res-tag">Alembic</span>
         </div>
         <ul class="res-bullets">
-          <li>Built a complete multi-page commerce experience with product browsing, product details, saved items, cart, checkout, order confirmation, order history, and account flows.</li>
-          <li>Implemented guest and authenticated carts with backend persistence, relational order data, and product-variant support.</li>
-          <li>Developed registration, login, password recovery and reset flows with database-backed rate limiting across sensitive endpoints.</li>
-          <li>Designed API and database layers using FastAPI, SQLAlchemy, PostgreSQL, and Alembic migrations for maintainable relational data models.</li>
-          <li>Integrated Razorpay test-mode checkout with backend-controlled order creation, payment-event tracking, webhook handling, and stock validation.</li>
+          <li>Built a complete multi-page commerce experience with product browsing, product details, saved items, cart, checkout, order confirmation, order history and account flows.</li>
+          <li>Implemented guest and authenticated carts with backend persistence, relational order data and product-variant support.</li>
+          <li>Developed registration, login, password recovery and reset flows, with database-backed rate limiting across sensitive endpoints.</li>
+          <li>Designed API and database layers using FastAPI, SQLAlchemy, PostgreSQL and Alembic migrations for maintainable relational data models.</li>
+          <li>Integrated Razorpay test-mode checkout with backend-controlled order creation, payment-event tracking, webhook handling and stock validation.</li>
           <li>Configured Docker Compose with PostgreSQL and Mailpit to make local development and password-recovery testing reproducible.</li>
         </ul>
       </div>
 
-      <div class="res-section-title">03 // Core Technical Stack</div>
+      <div class="res-section-title">03 // How I Built It (Architecture & Integrity)</div>
+      <ul class="res-bullets">
+        <li><strong>Frontend Architecture:</strong> Reusable React components, client-side routing, state-driven cart and account experiences, API integration through Axios.</li>
+        <li><strong>Backend Architecture:</strong> REST-style FastAPI endpoints, Pydantic validation, JWT-based authentication and SQLAlchemy ORM models.</li>
+        <li><strong>Data Integrity:</strong> Explicit order and payment records, item/address snapshots for open orders, stock checks and migration-driven schema changes.</li>
+        <li><strong>Developer Workflow:</strong> Git-based feature development, GitHub source control and Dockerized local services for consistent setup.</li>
+      </ul>
+
+      <div class="res-section-title">04 // Core Stack & Engineering Capabilities</div>
       <div class="res-tags" style="margin-bottom:12px">
-        <span class="res-tag"><strong>Languages:</strong> Python, JavaScript, SQL, HTML/CSS</span>
-        <span class="res-tag"><strong>Frontend:</strong> React 19, Vite, Tailwind CSS 4, React Router, Axios</span>
-        <span class="res-tag"><strong>Backend:</strong> FastAPI, SQLAlchemy, Pydantic, REST APIs, JWT Auth</span>
+        <span class="res-tag"><strong>Languages:</strong> Python, JavaScript, SQL, HTML / CSS</span>
+        <span class="res-tag"><strong>Frontend:</strong> React, Vite, Tailwind CSS, React Router, Axios</span>
+        <span class="res-tag"><strong>Backend:</strong> FastAPI, SQLAlchemy, REST APIs</span>
         <span class="res-tag"><strong>Data:</strong> PostgreSQL, Alembic Migrations</span>
-        <span class="res-tag"><strong>DevOps & Tools:</strong> Docker, Docker Compose, Git, GitHub, Mailpit</span>
-        <span class="res-tag"><strong>Payments:</strong> Razorpay Sandbox</span>
+        <span class="res-tag"><strong>Tools & DevOps:</strong> Docker, Docker Compose, Git, GitHub, Mailpit</span>
+        <span class="res-tag"><strong>Payments:</strong> Razorpay Sandbox, Test-mode checkout</span>
       </div>
 
-      <div class="res-section-title">04 // Education</div>
+      <div class="res-section-title">05 // Education</div>
       <div class="res-item">
         <div class="res-item-head">
           <div class="res-item-title">Ganga Institute of Technology and Management</div>
-          <div class="res-item-meta">2024 – Expected 2027</div>
+          <div class="res-item-meta">Expected 2027</div>
         </div>
         <div style="font-size:.88rem;color:var(--w2)">Bachelor of Computer Applications (BCA)</div>
+      </div>
+
+      <div style="margin-top:24px;text-align:center">
+        <a class="res-btn res-btn-dl" href="resume.pdf" download="Kushant_Resume.pdf" style="padding:12px 28px;font-size:.85rem">
+          <span>📥 Download Complete 2-Page PDF Resume</span>
+        </a>
       </div>
     </div>
   </div>
@@ -1407,17 +848,17 @@ footer .a{color:var(--p2)}
     <div class="gate-bars">
       <div class="gbar"></div><div class="gbar"></div><div class="gbar"></div><div class="gbar"></div><div class="gbar"></div>
     </div>
-    <div class="gate-hint">✦ Touch & drag anywhere to rotate 3D Quantum Core ✦</div>
+    <div class="gate-hint">✦ Drag anywhere to rotate 3D Quantum Core ✦</div>
     <div class="gate-actions">
       <button class="gate-btn" id="enter-btn">
         <span>INITIALIZE PORTFOLIO</span>
         <span style="font-size:1.1rem">→</span>
       </button>
-      <button class="gate-phone-btn" id="gate-phone-btn">
-        <span>📱 PHONE OS</span>
-      </button>
+      <a class="gate-dl-btn" href="resume.pdf" download="Kushant_Resume.pdf">
+        <span>📥 DOWNLOAD CV</span>
+      </a>
       <button class="gate-resume-btn" id="gate-view-resume">
-        <span>📄 RESUME</span>
+        <span>📄 VIEW RESUME</span>
       </button>
     </div>
   </div>
@@ -1448,8 +889,8 @@ footer .a{color:var(--p2)}
   </ul>
 
   <div class="n-actions">
-    <button class="n-phone-btn" id="nav-phone-btn">📱 Phone OS</button>
-    <button class="n-resume-btn" id="nav-resume-btn">📄 Resume</button>
+    <a class="n-dl-btn" href="resume.pdf" download="Kushant_Resume.pdf">📥 Download CV</a>
+    <button class="n-resume-btn" id="nav-resume-btn">📄 View Details</button>
     <button class="n-gate-btn" id="reopen-gate" title="Reopen 3D Interactive Gateway">✦ 3D Core</button>
     <a class="n-btn" href="mailto:honestlygolu@gmail.com">Hire Me</a>
   </div>
@@ -1467,7 +908,7 @@ footer .a{color:var(--p2)}
 <div id="mobile-drawer">
   <div style="display:flex;align-items:center;justify-content:space-between">
     <span class="n-logo">Kushant.</span>
-    <span style="font-size:.7rem;color:var(--p2);font-family:'Space Mono',monospace">v2.7 MOBILE</span>
+    <span style="font-size:.7rem;color:var(--p2);font-family:'Space Mono',monospace">v2.7 PORTFOLIO</span>
   </div>
 
   <ul class="mob-links">
@@ -1479,11 +920,11 @@ footer .a{color:var(--p2)}
   </ul>
 
   <div class="mob-actions">
-    <button class="bphone" id="drawer-phone-btn" style="width:100%;justify-content:center">
-      📱 Launch Phone Simulator
-    </button>
+    <a class="bdl" href="resume.pdf" download="Kushant_Resume.pdf" style="width:100%;justify-content:center">
+      📥 Download Resume (PDF)
+    </a>
     <button class="bres" id="drawer-resume-btn" style="width:100%;justify-content:center">
-      📄 View Resume (CV)
+      📄 View Interactive CV
     </button>
     <a class="bp" href="mailto:honestlygolu@gmail.com" style="width:100%;justify-content:center">
       Hire Me Directly
@@ -1495,7 +936,7 @@ footer .a{color:var(--p2)}
 <div id="mobile-dock">
   <a href="#hero" class="dock-item"><span class="dico">🏠</span><span>Home</span></a>
   <a href="#skills" class="dock-item"><span class="dico">⚡</span><span>Skills</span></a>
-  <button class="dock-item phone-pill" id="dock-phone-btn"><span class="dico">📱</span><span>Phone OS</span></button>
+  <a href="resume.pdf" download="Kushant_Resume.pdf" class="dock-item dl-pill"><span class="dico">📥</span><span>CV (PDF)</span></a>
   <a href="#projects" class="dock-item"><span class="dico">🚀</span><span>Nova</span></a>
   <a href="#contact" class="dock-item"><span class="dico">📞</span><span>Contact</span></a>
 </div>
@@ -1511,9 +952,9 @@ footer .a{color:var(--p2)}
     </p>
     <p class="tw-line">Currently crafting → <span class="tw" id="tw"></span><span class="cblink">|</span></p>
     <div class="hcta">
-      <button class="bphone" id="hero-phone-btn">📱 Interactive Phone UI</button>
       <a class="bp" href="#projects">View My Work</a>
-      <button class="bres" id="hero-resume-btn">📄 View Resume</button>
+      <a class="bdl" href="resume.pdf" download="Kushant_Resume.pdf">📥 Download Resume (PDF)</a>
+      <button class="bres" id="hero-resume-btn">📄 View Details</button>
       <a class="bg" href="#contact">Get In Touch</a>
     </div>
   </div>
@@ -1611,7 +1052,7 @@ footer .a{color:var(--p2)}
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap">
         <a class="bp" href="https://github.com/honestlygolu/Nova-Ecommerce" target="_blank">View GitHub Repository ↗</a>
-        <button class="bphone" onclick="openPhoneWithApp('nova')">📱 Test on Phone OS</button>
+        <a class="bdl" href="resume.pdf" download="Kushant_Resume.pdf">📥 Download PDF Resume</a>
         <button class="bres" onclick="document.getElementById('resume-modal').classList.add('active')">Read Engineering Breakdown</button>
       </div>
     </div>
@@ -1687,203 +1128,6 @@ if(isTouchDevice){
   if(dot) dot.style.display = 'none';
 }
 
-/* ─── WEB AUDIO & TACTILE FEEDBACK ─── */
-let audioCtx = null;
-function playBeep(freq = 600, dur = 0.08){
-  try{
-    if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    if(audioCtx.state === 'suspended') audioCtx.resume();
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-    gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + dur);
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    osc.start();
-    osc.stop(audioCtx.currentTime + dur);
-  }catch(e){}
-  if(navigator.vibrate) navigator.vibrate(12);
-}
-
-function showPhoneToast(msg){
-  const toast = document.getElementById('phone-toast');
-  if(toast){
-    toast.textContent = msg;
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2200);
-  }
-}
-
-/* ─── PHONE OS SIMULATOR LOGIC ─── */
-let phoneCartCount = 2;
-
-function updatePhoneClock(){
-  const now = new Date();
-  let h = now.getHours();
-  let m = now.getMinutes();
-  h = h < 10 ? '0' + h : h;
-  m = m < 10 ? '0' + m : m;
-  const el = document.getElementById('phone-clock');
-  if(el) el.textContent = `${h}:${m}`;
-}
-setInterval(updatePhoneClock, 1000);
-updatePhoneClock();
-
-const phoneModal = document.getElementById('phone-modal');
-const closePhoneBtn = document.getElementById('close-phone-modal');
-const navPhoneBtn = document.getElementById('nav-phone-btn');
-const heroPhoneBtn = document.getElementById('hero-phone-btn');
-const gatePhoneBtn = document.getElementById('gate-phone-btn');
-const dockPhoneBtn = document.getElementById('dock-phone-btn');
-const drawerPhoneBtn = document.getElementById('drawer-phone-btn');
-
-function openPhoneModal(){
-  phoneModal.classList.add('active');
-  playBeep(800, 0.05);
-}
-function closePhoneModal(){
-  phoneModal.classList.remove('active');
-}
-
-[navPhoneBtn, heroPhoneBtn, gatePhoneBtn, dockPhoneBtn, drawerPhoneBtn].forEach(btn => {
-  if(btn){
-    btn.addEventListener('click', openPhoneModal);
-    btn.addEventListener('touchend', e => { e.preventDefault(); openPhoneModal(); });
-  }
-});
-closePhoneBtn && closePhoneBtn.addEventListener('click', closePhoneModal);
-
-phoneModal && phoneModal.addEventListener('click', e => {
-  if(e.target === phoneModal) closePhoneModal();
-});
-
-// App Opening inside Phone
-document.querySelectorAll('.app-icon-wrap[data-app]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const appName = btn.getAttribute('data-app');
-    openPhoneWithApp(appName);
-  });
-});
-
-function openPhoneWithApp(appName){
-  openPhoneModal();
-  playBeep(700, 0.06);
-  document.querySelectorAll('.phone-app-view').forEach(view => view.classList.remove('open'));
-  const targetView = document.getElementById(`app-${appName}-view`);
-  if(targetView){
-    targetView.classList.add('open');
-  }
-}
-
-// Back to Phone Home
-document.querySelectorAll('.phone-back-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    playBeep(450, 0.05);
-    document.querySelectorAll('.phone-app-view').forEach(view => view.classList.remove('open'));
-  });
-});
-
-const phoneHomeBar = document.getElementById('phone-home-bar');
-if(phoneHomeBar){
-  phoneHomeBar.addEventListener('click', () => {
-    playBeep(400, 0.05);
-    document.querySelectorAll('.phone-app-view').forEach(view => view.classList.remove('open'));
-  });
-}
-
-// Nova mini app cart actions
-function addPhoneCart(item){
-  playBeep(950, 0.08);
-  phoneCartCount++;
-  document.getElementById('cart-count').textContent = phoneCartCount;
-  document.getElementById('phone-cart-badge').textContent = phoneCartCount;
-  showPhoneToast(`✓ Added "${item}" to cart!`);
-}
-
-const checkoutBtn = document.getElementById('phone-checkout-btn');
-checkoutBtn && checkoutBtn.addEventListener('click', () => {
-  playBeep(1100, 0.1);
-  alert(`🛍️ NOVA CHECKOUT SIMULATION:\nTotal items: ${phoneCartCount}\nRazorpay Sandbox Test Mode Order generated!\nCheck GitHub repo for full code implementation.`);
-});
-
-// Terminal mini app logic
-const termInput = document.getElementById('term-input');
-const termOutput = document.getElementById('term-output');
-
-function runTermCmd(cmd){
-  playBeep(650, 0.04);
-  cmd = cmd.trim().toLowerCase();
-  const line = document.createElement('div');
-  line.innerHTML = `<span style="color:var(--p2)">kushant@phone:~$</span> ${cmd}`;
-  termOutput.appendChild(line);
-
-  const res = document.createElement('div');
-  res.style.color = '#e2e8f0';
-
-  switch(cmd){
-    case 'help':
-      res.innerHTML = `Available commands: <span style="color:var(--p2)">about, skills, projects, contact, hire, clear, neofetch</span>`;
-      break;
-    case 'about':
-      res.innerHTML = `Kushant — Software & Full-Stack Developer in Delhi, India. BCA student (2024-2027) building high-impact systems.`;
-      break;
-    case 'skills':
-      res.innerHTML = `Core Stack: React 19, FastAPI, PostgreSQL, Python, Docker, Tailwind CSS 4, Alembic, SQLAlchemy.`;
-      break;
-    case 'projects':
-      res.innerHTML = `🚀 <strong>NOVA E-Commerce</strong> — Full-stack platform with Auth, Cart persistence, DB rate limiting, and Razorpay sandbox payments.`;
-      break;
-    case 'contact':
-      res.innerHTML = `📞 Phone: +91 9289256544<br/>✉️ Email: honestlygolu@gmail.com<br/>🔗 GitHub: github.com/honestlygolu`;
-      break;
-    case 'hire':
-      res.innerHTML = `<span style="color:#2dd4bf">Open to full-stack, frontend, and backend engineering roles! Email honestlygolu@gmail.com</span>`;
-      break;
-    case 'neofetch':
-      res.innerHTML = `OS: KushantOS v2.7<br/>Host: FullStack Framework 2026<br/>Uptime: 24/7 Builder<br/>Shell: zsh (FastAPI + React)`;
-      break;
-    case 'clear':
-      termOutput.innerHTML = '';
-      return;
-    default:
-      res.innerHTML = `<span style="color:#ef4444">Command not found: ${cmd}</span>. Type 'help' for command list.`;
-  }
-  termOutput.appendChild(res);
-  termOutput.scrollTop = termOutput.scrollHeight;
-}
-
-termInput && termInput.addEventListener('keydown', e => {
-  if(e.key === 'Enter' && termInput.value.trim()){
-    runTermCmd(termInput.value);
-    termInput.value = '';
-  }
-});
-
-function clearTerm(){
-  if(termOutput) termOutput.innerHTML = '<div>Terminal reset. Type <span style="color:var(--p2)">help</span>.</div>';
-}
-
-// Dialer app logic
-let dialedNumber = '+91 9289256544';
-const dtmfFreqs = { '1':697, '2':770, '3':852, '4':697, '5':770, '6':852, '7':697, '8':770, '9':852, '0':941, '*':941, '#':941 };
-
-function dialKey(k){
-  playBeep(dtmfFreqs[k] || 750, 0.09);
-  if(dialedNumber === '+91 9289256544') dialedNumber = '';
-  dialedNumber += k;
-  const el = document.getElementById('dial-number');
-  if(el) el.textContent = dialedNumber;
-}
-
-// Phone theme switcher
-function setPhoneTheme(color){
-  playBeep(850, 0.06);
-  document.documentElement.style.setProperty('--phone-accent', color);
-  showPhoneToast(`Theme accent changed!`);
-}
-
 /* ─── MOBILE DRAWER & MENU ─── */
 const mobToggle = document.getElementById('mobile-menu-btn');
 const mobDrawer = document.getElementById('mobile-drawer');
@@ -1891,7 +1135,6 @@ const mobOverlay = document.getElementById('mobile-drawer-overlay');
 const mobLinks = document.querySelectorAll('.mob-link');
 
 function toggleMobileNav(){
-  playBeep(500, 0.04);
   const isOpen = mobDrawer.classList.toggle('open');
   mobOverlay.classList.toggle('open', isOpen);
   mobToggle.classList.toggle('open', isOpen);
@@ -1915,7 +1158,7 @@ mobLinks.forEach(l => l.addEventListener('click', closeMobileNav));
   const gateResume = document.getElementById('gate-view-resume');
   const drawerResume = document.getElementById('drawer-resume-btn');
 
-  function openResume(){ playBeep(650, 0.05); modal.classList.add('active'); }
+  function openResume(){ modal.classList.add('active'); }
   function closeResume(){ modal.classList.remove('active'); }
 
   navResume && navResume.addEventListener('click', openResume);
@@ -1929,7 +1172,7 @@ mobLinks.forEach(l => l.addEventListener('click', closeMobileNav));
   });
 })();
 
-/* ─── GATEWAY 3D INTERACTIVE CORE & WARP TRANSITION (SMOOTH TOUCH & MOUSE) ─── */
+/* ─── GATEWAY 3D INTERACTIVE CORE & WARP TRANSITION (TOUCH & MOUSE) ─── */
 (function(){
   const gCanvas = document.getElementById('gate-canvas');
   const gateEl = document.getElementById('gateway');
@@ -2005,7 +1248,7 @@ mobLinks.forEach(l => l.addEventListener('click', closeMobileNav));
     }
   });
 
-  // Native Touch Drag Events on Canvas
+  // Touch Drag Events on Canvas
   gCanvas.addEventListener('touchstart', e => {
     if(e.touches.length > 0){
       isDragging = true;
@@ -2054,7 +1297,6 @@ mobLinks.forEach(l => l.addEventListener('click', closeMobileNav));
   animGate();
 
   function unlockPortfolio(){
-    playBeep(880, 0.12);
     warpSpeed = true;
     gateEl.classList.add('unlocking');
     setTimeout(() => {
@@ -2115,7 +1357,7 @@ mobLinks.forEach(l => l.addEventListener('click', closeMobileNav));
     requestAnimationFrame(loop);
   })();
 
-  document.querySelectorAll('a,button,.sbox,.sk,.ccd,.pc,.n-btn,.gate-btn,.bphone,.bres').forEach(el=>{
+  document.querySelectorAll('a,button,.sbox,.sk,.ccd,.pc,.n-btn,.gate-btn,.bdl,.bres').forEach(el=>{
     el.addEventListener('mouseenter',()=>cur.classList.add('big'));
     el.addEventListener('mouseleave',()=>cur.classList.remove('big'));
   });
@@ -2313,7 +1555,6 @@ mobLinks.forEach(l => l.addEventListener('click', closeMobileNav));
   // Touch Flip for Skill Cards
   document.querySelectorAll('.sk').forEach(card => {
     card.addEventListener('click', () => {
-      playBeep(520, 0.04);
       card.classList.toggle('flipped');
     });
   });
