@@ -2,12 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
 <title>Kushant | Software & Full-Stack Developer</title>
 <meta name="description" content="Portfolio of Kushant - Software & Full-Stack Developer specializing in React 19, FastAPI, PostgreSQL, Docker, and full-stack web platforms."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800;900&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+
 <style>
 /* ─── COLOR TOKENS ─── */
 :root{
@@ -1577,6 +1581,16 @@ mobLinks.forEach(l => l.addEventListener('click', closeMobileNav));
   const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.08});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 })();
+
+/* ── PRINT INTERCEPT (FORCE CLEAN PDF DOWNLOAD) ── */
+window.addEventListener('beforeprint', e => {
+  const a = document.createElement('a');
+  a.href = 'resume.pdf';
+  a.download = 'Kushant_Resume.pdf';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+});
 </script>
 </body>
 </html>
